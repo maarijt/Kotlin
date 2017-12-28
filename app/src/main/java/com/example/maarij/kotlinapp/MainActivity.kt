@@ -1,5 +1,6 @@
 package com.example.maarij.kotlinapp
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("PrivateResource")
     fun changeFragment(f: Fragment, cleanStack: Boolean = false) {
         val ft = supportFragmentManager.beginTransaction();
         if (cleanStack) {

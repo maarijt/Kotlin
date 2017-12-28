@@ -6,6 +6,10 @@ import com.example.maarij.kotlinapp.Adapters.ViewType
 /**
  * Created by maarij on 12/28/17.
  */
+data class RedditNews(
+        val after: String,
+        val before: String,
+        val news: List<RedditNewsItem>)
 
 data class RedditNewsItem(
         val author: String,
