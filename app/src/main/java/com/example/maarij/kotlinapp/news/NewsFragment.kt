@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.maarij.kotlinapp.R
 import com.example.maarij.kotlinapp.commons.inflate
+import com.example.maarij.kotlinapp.Adapters.NewsAdapter
 import kotlinx.android.synthetic.main.news_fragment.*
 
 
@@ -28,5 +29,12 @@ class NewsFragment : Fragment() {
 
         news_list.setHasFixedSize(true)
         news_list.layoutManager = LinearLayoutManager(context)
+
+        initAdapter()
+    }
+    private fun initAdapter() {
+        if (news_list.adapter == null) {
+            news_list.adapter = NewsAdapter()
+        }
     }
 }
