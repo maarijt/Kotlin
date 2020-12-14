@@ -15,11 +15,11 @@ import com.squareup.picasso.Picasso
 /**
  * Created by maarij on 12/28/17.
  */
-fun ViewGroup.inflate(layoutId: Int, attachToRoot: Boolean = false): View {
+fun ViewGroup.inflate(layoutId: Int): View {
     return android.view.LayoutInflater.from(context).inflate(layoutId, this, false)
 }
 
-fun ImageView.loadImg(imageUrl: String) {
+fun ImageView.loadImg(imageUrl: String?) {
     if (TextUtils.isEmpty(imageUrl)) {
         Picasso.get().load(R.mipmap.ic_launcher).into(this)
     } else {

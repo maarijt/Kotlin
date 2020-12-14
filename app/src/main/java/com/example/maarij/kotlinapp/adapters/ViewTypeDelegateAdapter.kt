@@ -1,4 +1,4 @@
-package com.example.maarij.kotlinapp.Adapters
+package com.example.maarij.kotlinapp.adapters
 
 /**
  * Created by maarij on 12/28/17.

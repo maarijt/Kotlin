@@ -4,8 +4,7 @@ package com.example.maarij.kotlinapp.news
  * Created by maarij on 12/28/17.
  */
 
-import android.telecom.CallScreeningService
-import com.example.maarij.kotlinapp.RedditApi.RestAPI
+import com.example.maarij.kotlinapp.apis.redditapi.RestAPI
 import com.example.maarij.kotlinapp.commons.RedditNews
 import com.example.maarij.kotlinapp.commons.RedditNewsItem
 import rx.Observable
@@ -17,15 +16,15 @@ class NewsManager(private val api: RestAPI = RestAPI()) {
             val response = callResponse.execute()
 
             if (response.isSuccessful) {
-                val dataResponse = response.body()?.data!!
-                val news = dataResponse.children.map {
+                val dataResponse = response.body()?.data
+                val news = dataResponse?.children?.map {
                     val item = it.data
                     RedditNewsItem(item.author, item.title, item.num_comments,
                             item.created, item.thumbnail, item.url)
                 }
                 val redditNews = RedditNews(
-                        dataResponse.after ?: "",
-                        dataResponse.before ?: "",
+                        dataResponse?.after,
+                        dataResponse?.before,
                         news)
 
                 subscriber.onNext(redditNews)

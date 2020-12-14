@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.maarij.kotlinapp.Adapters.NewsAdapter
+import com.example.maarij.kotlinapp.adapters.NewsAdapter
 import com.example.maarij.kotlinapp.R
 import com.example.maarij.kotlinapp.commons.InfiniteScrollListener
 import com.example.maarij.kotlinapp.commons.RedditNews
@@ -23,7 +23,7 @@ class NewsFragment : RxBaseFragment() {
     private val newsManager by lazy { NewsManager() }
 
     companion object {
-        private val KEY_REDDIT_NEWS = "redditNews"
+        private const val KEY_REDDIT_NEWS = "redditNews"
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return container?.inflate(R.layout.news_fragment)
@@ -44,7 +44,7 @@ class NewsFragment : RxBaseFragment() {
 
         if (savedInstanceState != null && savedInstanceState.containsKey(KEY_REDDIT_NEWS)) {
             redditNews = savedInstanceState.get(KEY_REDDIT_NEWS) as RedditNews
-            (news_list.adapter as NewsAdapter).clearAndAddNews(redditNews!!.news)
+            (news_list.adapter as NewsAdapter).clearAndAddNews(redditNews?.news)
         } else {
             requestNews()
         }

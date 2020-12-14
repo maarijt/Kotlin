@@ -2,16 +2,16 @@ package com.example.maarij.kotlinapp.commons
 
 import android.os.Parcel
 import android.os.Parcelable
-import com.example.maarij.kotlinapp.Adapters.AdapterConstants
-import com.example.maarij.kotlinapp.Adapters.ViewType
+import com.example.maarij.kotlinapp.adapters.AdapterConstants
+import com.example.maarij.kotlinapp.adapters.ViewType
 
 /**
  * Created by maarij on 12/28/17.
  */
 data class RedditNews(
-        val after: String,
-        val before: String,
-        val news: List<RedditNewsItem>) : Parcelable {
+        val after: String?,
+        val before: String?,
+        val news: List<RedditNewsItem>?) : Parcelable {
 
     companion object {
         @JvmField
@@ -20,8 +20,8 @@ data class RedditNews(
     }
 
     protected constructor(parcelIn: Parcel) : this(
-            parcelIn.readString()!!,
-            parcelIn.readString()!!,
+            parcelIn.readString(),
+            parcelIn.readString(),
             mutableListOf<RedditNewsItem>().apply {
                 parcelIn.readTypedList(this, RedditNewsItem.CREATOR)
             }
@@ -36,12 +36,12 @@ data class RedditNews(
 }
 
 data class RedditNewsItem(
-        val author: String,
-        val title: String,
+        val author: String?,
+        val title: String?,
         val numComments: Int,
         val created: Long,
-        val thumbnail: String,
-        val url: String
+        val thumbnail: String?,
+        val url: String?
 ) : ViewType, Parcelable {
 
         companion object {
@@ -49,12 +49,12 @@ data class RedditNewsItem(
             val CREATOR = createParcel { RedditNewsItem(it) }
         }
         protected constructor(parcelIn: Parcel) : this(
-        parcelIn.readString()!!,
-        parcelIn.readString()!!,
+        parcelIn.readString(),
+        parcelIn.readString(),
         parcelIn.readInt(),
         parcelIn.readLong(),
-        parcelIn.readString()!!,
-        parcelIn.readString()!!
+        parcelIn.readString(),
+        parcelIn.readString()
         )
 
         override fun writeToParcel(dest: Parcel, flags: Int) {

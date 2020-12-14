@@ -1,4 +1,4 @@
-package com.example.maarij.kotlinapp.RedditApi
+package com.example.maarij.kotlinapp.apis.redditapi
 
 /**
  * Created by maarij on 12/28/17.

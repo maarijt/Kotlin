@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import com.example.maarij.kotlinapp.apis.youtubeapi.YoutubeRestApi
 
 import kotlinx.android.synthetic.main.activity_main.*
 import com.example.maarij.kotlinapp.news.NewsFragment
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             changeFragment(NewsFragment())
         }
+        val api = YoutubeRestApi()
     }
 
     @SuppressLint("PrivateResource")
