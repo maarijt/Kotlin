@@ -4,7 +4,7 @@ package com.example.maarij.kotlinapp.Adapters
  * Created by maarij on 12/28/17.
  */
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 import com.example.maarij.kotlinapp.R
 import com.example.maarij.kotlinapp.commons.inflate

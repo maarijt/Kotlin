@@ -3,8 +3,8 @@ package com.example.maarij.kotlinapp.commons
 /**
  * Created by maarij on 12/28/17.
  */
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 
 class InfiniteScrollListener(val func: () -> Unit,

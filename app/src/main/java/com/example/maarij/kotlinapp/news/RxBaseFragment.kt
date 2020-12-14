@@ -4,7 +4,7 @@ package com.example.maarij.kotlinapp.news
  * Created by maarij on 12/28/17.
  */
 
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import rx.subscriptions.CompositeSubscription
 
 open class RxBaseFragment() : Fragment() {

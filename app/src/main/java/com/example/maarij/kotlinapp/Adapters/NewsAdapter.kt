@@ -1,7 +1,7 @@
 package com.example.maarij.kotlinapp.Adapters
 
-import android.support.v4.util.SparseArrayCompat
-import android.support.v7.widget.RecyclerView
+import androidx.collection.SparseArrayCompat
+import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 import com.example.maarij.kotlinapp.commons.RedditNewsItem
 
@@ -30,11 +30,11 @@ class NewsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return delegateAdapters.get(viewType).onCreateViewHolder(parent)
+        return delegateAdapters.get(viewType)?.onCreateViewHolder(parent)!!
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        delegateAdapters.get(getItemViewType(position)).onBindViewHolder(holder, this.items[position])
+        delegateAdapters.get(getItemViewType(position))?.onBindViewHolder(holder, this.items[position])!!
     }
 
     override fun getItemViewType(position: Int): Int {
